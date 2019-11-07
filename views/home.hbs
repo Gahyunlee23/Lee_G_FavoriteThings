@@ -1,0 +1,36 @@
+<section class="introText">
+    <h2>Favorite Queer Movies</h2>
+    <p>
+        I like watch movies! I prefer to go to the theater to watch new release movies with big screen and quality sound.
+        I have movie lists for the categories, such as weather, emotion, or study. This list I pick for the favorite things is a queer movie by weather.
+        If you wanna watch queer movies which really touching also have messages, I would recommend this by weather!
+    </p>
+
+    <h3>Movie List</h3>
+    <h4>Click on a poster below to learn more about movies</h4>
+</section>
+
+    <div class="movies">
+        <!-- loop through all our team members and put their info on the page -->
+        
+        {{#each movie }} <!-- this is like a JS forEach loop -->
+        <div class="movie-panel">
+            <div class="m-poster">
+                <img src="images/{{Poster}}" alt="movie-poster" class="poster">
+            </div>
+
+            <a href="{{ID}}" class="m-link">
+                See More Info!
+            </a>
+
+            <h1>{{Title}}</h1>
+            <h3>{{Premiere}}</h3>
+            <h3>{{Season}}</h3>
+            <p>{{Synopsis}}</p>
+            
+
+        </div>
+        {{/each}}
+  
+    </div>
+    </div>
