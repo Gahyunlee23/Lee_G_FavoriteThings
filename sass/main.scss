@@ -12,27 +12,30 @@ h1, h2, h3, h4, h5, p, a {
     img { max-width: 100%; } 
 }
 
-.introText{
+.introText {
+
+    h2, h3, h4, p {
+        font-family: verveine, sans-serif;
+        text-align: center;
+    }
+
     h2 {
         font-size: 1.3rem;
         font-weight: 600;
         padding: 5px 0 5px 0;
         border-bottom: 3px solid pink;
-        text-align: center;
      }
+
+     h3 {
+        font-size: 1.3rem;
+        padding-bottom: 15px;
+        font-weight: 600;
+    }
+
     p {
         padding: 15px 0 25px 0;
         font-size: 1rem;
-        font-family: verveine, sans-serif;
-        font-style: normal;
         font-weight: 400;
-     }
-
-    h3 {
-        font-weight: 600;
-        font-size: 1.3rem;
-        text-align: center;
-        padding-bottom: 15px;
      }
 
  }
@@ -41,27 +44,41 @@ h1, h2, h3, h4, h5, p, a {
 
  @media screen and (min-width: 48rem) {
 
-
     .introText {
+        width: 100%;
+
         h2 {
             font-size: 2.3rem;
             padding: 15px 0 15px 0;
         }
 
         p {
-            width: 730px;
-            font-size: 1.5rem;
-            margin-left: 5px;
+            font-size: 2rem;
+            text-align: center;
         }
 
         h3 {
-            font-size: 3rem;
+            font-size: 4rem;
+            padding-top: 15px;
         }
+
+        h4 { font-size: 2rem; }
     }
  }
 
  @media screen and (min-width: 80rem) {
+    .wrapper {
+        width: 1280px;
+        margin: 0 auto;
+    }
 
+
+    .mainHeader {
+        img { width: 100%; }
+    }
+    .introText {
+        h4 { font-size: 2.5rem; }
+    }
  }
 
  @import 'modules/_movies';
