@@ -2,38 +2,38 @@
 
 const myVM = (() => {
     // get the user buttons and fire off an async DB query with Fetch
-    let userButtons = document.querySelectorAll('.u-link'),
+    let userButtons = document.querySelectorAll('.m-link'),
         lightBox = document.querySelector('.lightbox');
 
     //create the social media list
-    function renderSocialMedia(media) {
-        return `<ul class="u-social">
+    function renderMovieCast(media) {
+        return `<ul class="m-cast">
                     ${media.map(item => `<li>${item}</li>`).join("")}
                 </ul>` 
     }
 
-    function parseUserData(person) {
+    function getMovieInfo(movie) {
         let targetDiv = lightBox.querySelector('.lb-content'),
             targetImg = lightBox.querySelector('img');
 
-        let bioContent = `
-            <p>${person.bio}</p>
-            <h4>Social Media:</h4>
+        let movieContent = `
+            <p>${movie.director}</p>
+            <h4>Movie Cast:</h4>
             <!-- loop thru social media stuff here -->
-            ${renderSocialMedia(person.social)}
+            ${renderMovieCast(movie.cast)}
         `;
 
-        targetDiv.innerHTML = bioContent;
+        targetDiv.innerHTML = movieContent;
         targetImg.src = person.currentSrc;
 
         lightBox.classList.add('show-lb');
     }
 
-    function getUserData(event) {
+    function getMovieInfo(event) {
         event.preventDefault();
         // debugger;
         //1, 2 or 3 depending on which anchor tag you click
-        let url = `/${this.getAttribute('href')}`,
+        let url = `/users/${this.getAttribute('href')}`,
             currentImg = this.previousElementSibling.getAttribute('src');
             
         
@@ -46,13 +46,13 @@ const myVM = (() => {
               
 
                 data.currentSrc = currentImg;
-                parseUserData(data);
+                getMovieInfo(data);
             })
 
             .catch(err => console.log(err));
     }
 
-    userButtons.forEach(button => button.addEventListener("click", getUserData));
+    userButtons.forEach(button => button.addEventListener("click", getMovieInfo));
 
     lightBox.querySelector('.close').addEventListener("click", function() {
         lightBox.classList.remove('show-lb');
