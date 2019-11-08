@@ -10,6 +10,15 @@
     padding: 20px;
 
     background-color: rgba(0, 0,0, 0.85);
+    color: #fff;
+    font-family: verveine, sans-serif;
+
+    font-size: 1.5rem;
+
+    h3, h4, p {
+        font-family: verveine, sans-serif;
+        color: #fff;
+    }
 
     .sidebar {
         flex: 1;
@@ -19,7 +28,8 @@
         flex: 3;
     }
 
-    img { max-width: 250px; }
+    img { width: 250px; }
+
 
     .close {    
         right: 24px;
@@ -40,5 +50,26 @@
     li { 
         display: inline-block;
         padding: 10px;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .lightbox { 
+        width: 100%; 
+
+        img { 
+            width: 250px; 
+        }
+    }
+}
+
+@media screen and (min-width: 80rem) {
+    .lightbox { 
+        font-size: 1.5rem;
+        
+        h3, h4, p { 
+            width: 800px; 
+            font-size: 2rem;
+        }
     }
 }
