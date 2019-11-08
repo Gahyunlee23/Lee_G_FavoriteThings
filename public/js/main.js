@@ -16,10 +16,12 @@ const myVM = (() => {
             targetImg = lightBox.querySelector('img');
 
         let movieContent = `
-            <h3>${movie.Director}</h3>
-            <h4>Movie Cast:</h4>
+            <h3>Movie Director: </h3>
+            <h3>${movie.Director}</h3><br>
+            <h4>Movie Cast: </h4>
             <!-- loop thru social media stuff here -->
-            ${renderMovieCast(movie.Cast)}
+            ${renderMovieCast(movie.Cast)}<br>
+            <p>Reason that I suggest is ...</p>
             <p>${movie.Reason}</p>
 
         `;
