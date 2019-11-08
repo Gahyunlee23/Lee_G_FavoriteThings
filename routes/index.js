@@ -25,7 +25,7 @@ router.get('/users/:id', (req, res) => {
     console.log(req.params.id); // 1, 2, 3 or whatever comes after the slash
 
 
-    let query = "SELECT * FROM tbl_seeMore";
+    let query = "SELECT * FROM tbl_seeMore"
 
     sql.query(query, (err, result) => {
         if (err) { throw err; console.log(err); }
@@ -35,7 +35,7 @@ router.get('/users/:id', (req, res) => {
         //convert the social property into an array
         // before we send it thru
         // map is an array method that lets you map one value to another (convert it)
-        result[0].cast = result[0].cast.split(",").map(function(item) {
+        result[0].Cast = result[0].Cast.split(",").map(function(item) {
             item = item.trim();
             // item.trim() removes any empty white space from text
             return item;

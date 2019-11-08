@@ -1,44 +1,43 @@
-// this is a partially revealing module pattern - just a variation on what we've already done
+
 
 const myVM = (() => {
-    // get the user buttons and fire off an async DB query with Fetch
     let userButtons = document.querySelectorAll('.m-link'),
         lightBox = document.querySelector('.lightbox');
 
-    //create the social media list
+ 
     function renderMovieCast(media) {
         return `<ul class="m-cast">
                     ${media.map(item => `<li>${item}</li>`).join("")}
                 </ul>` 
     }
 
-    function getMovieInfo(movie) {
+    function parseMovieInfo(movie) {
         let targetDiv = lightBox.querySelector('.lb-content'),
             targetImg = lightBox.querySelector('img');
 
         let movieContent = `
-            <p>${movie.director}</p>
+            <h3>${movie.Director}</h3>
             <h4>Movie Cast:</h4>
             <!-- loop thru social media stuff here -->
-            ${renderMovieCast(movie.cast)}
+            ${renderMovieCast(movie.Cast)}
+            <p>${movie.Reason}</p>
+
         `;
 
         targetDiv.innerHTML = movieContent;
-        targetImg.src = person.currentSrc;
+        targetImg.src = movie.currentSrc;
 
         lightBox.classList.add('show-lb');
     }
 
     function getMovieInfo(event) {
         event.preventDefault();
-        // debugger;
-        //1, 2 or 3 depending on which anchor tag you click
+        //debugger;
+
         let url = `/users/${this.getAttribute('href')}`,
-            currentImg = this.previousElementSibling.getAttribute('src');
+            currentImg = this.previousElementSibling.querySelector('img').getAttribute('src');
             
-        
-        // this goes and fetched the database content (or an API endp)
-        // that's why ..?
+ 
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -46,7 +45,7 @@ const myVM = (() => {
               
 
                 data.currentSrc = currentImg;
-                getMovieInfo(data);
+                parseMovieInfo(data);
             })
 
             .catch(err => console.log(err));
