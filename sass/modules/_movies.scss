@@ -9,7 +9,7 @@
 
    h1, h3, p {
        width: 100%;
-       padding-bottom: 10px;
+       padding-bottom: 20px;
    } 
 
    h1 { 
@@ -27,9 +27,11 @@
 
  @media screen and (min-width: 46rem) {
      .movies {
+        h3 { font-size: 1.5rem; }
+
         p {
             font-size: 1.5rem;
-            line-height: 30px
+            line-height: 30px;
         }
 
         img { margin-top: 100px; }
@@ -41,7 +43,7 @@
         img { max-width: 1280px; }
     }
 
-    h1, h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
 
     a {
         font-size: 1.5rem;
