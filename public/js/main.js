@@ -9,10 +9,10 @@ const myVM = (() => {
     function renderMovieCast(media) {
         return `<ul class="m-cast">
                     ${media.map(item => `<li>${item}</li>`).join("")}
-                </ul>` 
+                </ul>`
     }
 
-    function getMovieInfo(movie) {
+    function parseMovieInfo(movie) {
         let targetDiv = lightBox.querySelector('.lb-content'),
             targetImg = lightBox.querySelector('img');
 
@@ -35,18 +35,18 @@ const myVM = (() => {
         //1, 2 or 3 depending on which anchor tag you click
         let url = `/users/${this.getAttribute('href')}`,
             currentImg = this.previousElementSibling.getAttribute('src');
-            
-        
+
+
         // this goes and fetched the database content (or an API endp)
         // that's why ..?
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-              
+
 
                 data.currentSrc = currentImg;
-                getMovieInfo(data);
+                parseMovieInfo(data);
             })
 
             .catch(err => console.log(err));
@@ -54,8 +54,8 @@ const myVM = (() => {
 
     userButtons.forEach(button => button.addEventListener("click", getMovieInfo));
 
-    lightBox.querySelector('.close').addEventListener("click", function() {
-        lightBox.classList.remove('show-lb');
-    });
+    // lightBox.querySelector('.close').addEventListener("click", function () {
+    //     lightBox.classList.remove('show-lb');
+    // });
 
 })();
